@@ -1,2 +1,2 @@
 # rpi-edb
-rasberrypi electronic display board
+raspberrypi electronic display board
