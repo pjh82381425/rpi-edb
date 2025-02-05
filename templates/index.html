@@ -1,10 +1,111 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ko">
-    <head>
-        <meta charset = "utf-8">
-        <title>전광판</title>
-    </head>
-    <body>
-        {{data.message}}
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>현재 데이터</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7fc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+        }
+        .container {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 350px;
+            text-align: center;
+        }
+        .heading {
+            font-size: 24px;
+            font-weight: 500;
+            color: #4a4a4a;
+            margin-bottom: 20px;
+        }
+        .info-box {
+            background-color: #f0f4f8;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .info-box h2 {
+            font-size: 20px;
+            font-weight: 500;
+            margin: 10px 0;
+            color: #4a90e2;
+        }
+        .info-box p {
+            font-size: 16px;
+            margin: 5px 0;
+        }
+        .address {
+            font-size: 14px;
+            color: #999;
+            margin-top: 10px;
+        }
+        .time {
+            font-size: 14px;
+            color: #888;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="heading">현재 환경 데이터</div>
+        
+        <div class="info-box">
+            <h2>온습도 (Temperature & Humidity)</h2>
+            <p id="temperature">로딩 중...</p>
+            <p id="humidity">로딩 중...</p>
+        </div>
+
+        <div class="info-box">
+            <h2>미세먼지 (Fine Dust)</h2>
+            <p id="pm25">로딩 중...</p>
+        </div>
+
+        <div class="info-box">
+            <h2>현재 시간 (Current Time)</h2>
+            <p id="current-time">로딩 중...</p>
+        </div>
+
+        <div class="address">
+            <p>학교 주소: 경상남도 양산시 물금읍 가촌리 1277-4</p>
+        </div>
+    </div>
+
+    <script>
+        function updateData() {
+            fetch('/get_data')  // Flask 서버의 /get_data API 호출
+                .then(response => response.json())
+                .then(data => {
+                    // 서버에서 받은 데이터로 UI 업데이트
+                    document.getElementById('temperature').textContent = `온도: ${data.temperature}°C`;
+                    document.getElementById('humidity').textContent = `습도: ${data.humidity}%`;
+                    document.getElementById('pm25').textContent = `미세먼지 (PM 2.5): ${data.pm25} µg/m³`;
+                    document.getElementById('current-time').textContent = `현재 시간: ${data.current_time}`;
+                })
+                .catch(error => {
+                    console.error('데이터를 가져오는 데 오류가 발생했습니다:', error);
+                });
+        }
+
+        // 페이지 로드 시 초기 데이터 업데이트
+        updateData();
+
+        // 0.5초마다 updateData() 함수 호출
+        setInterval(updateData, 1000);  // 500ms (0.5초)마다 자동으로 호출
+    </script>
+</body>
 </html>
