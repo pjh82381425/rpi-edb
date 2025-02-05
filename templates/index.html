@@ -1,111 +1,728 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>현재 데이터</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <title>My Webcrumbs Plugin</title>
     <style>
+        @import url(https://fonts.googleapis.com/css2?family=Lato&display=swap);
+
+        @import url(https://fonts.googleapis.com/css2?family=Open+Sans&display=swap);
+
+        @import url(https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200);
+
+        /*! tailwindcss v3.4.11 | MIT License | https://tailwindcss.com*/
+        *,
+        :after,
+        :before {
+            border: 0 solid #e5e7eb;
+            box-sizing: border-box;
+        }
+
+        :after,
+        :before {
+            --tw-content: "";
+        }
+
+        :host,
+        html {
+            line-height: 1.5;
+            -webkit-text-size-adjust: 100%;
+            font-family:
+                Open Sans,
+                ui-sans-serif,
+                system-ui,
+                sans-serif,
+                Apple Color Emoji,
+                Segoe UI Emoji,
+                Segoe UI Symbol,
+                Noto Color Emoji;
+            font-feature-settings: normal;
+            font-variation-settings: normal;
+            -moz-tab-size: 4;
+            tab-size: 4;
+            -webkit-tap-highlight-color: transparent;
+        }
+
         body {
-            font-family: 'Roboto', sans-serif;
+            line-height: inherit;
+            margin: 0;
+        }
+
+        hr {
+            border-top-width: 1px;
+            color: inherit;
+            height: 0;
+        }
+
+        abbr:where([title]) {
+            text-decoration: underline dotted;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-size: inherit;
+            font-weight: inherit;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: inherit;
+        }
+
+        b,
+        strong {
+            font-weight: bolder;
+        }
+
+        code,
+        kbd,
+        pre,
+        samp {
+            font-family:
+                ui-monospace,
+                SFMono-Regular,
+                Menlo,
+                Monaco,
+                Consolas,
+                Liberation Mono,
+                Courier New,
+                monospace;
+            font-feature-settings: normal;
+            font-size: 1em;
+            font-variation-settings: normal;
+        }
+
+        small {
+            font-size: 80%;
+        }
+
+        sub,
+        sup {
+            font-size: 75%;
+            line-height: 0;
+            position: relative;
+            vertical-align: baseline;
+        }
+
+        sub {
+            bottom: -0.25em;
+        }
+
+        sup {
+            top: -0.5em;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-color: inherit;
+            text-indent: 0;
+        }
+
+        button,
+        input,
+        optgroup,
+        select,
+        textarea {
+            color: inherit;
+            font-family: inherit;
+            font-feature-settings: inherit;
+            font-size: 100%;
+            font-variation-settings: inherit;
+            font-weight: inherit;
+            letter-spacing: inherit;
+            line-height: inherit;
             margin: 0;
             padding: 0;
-            background-color: #f4f7fc;
+        }
+
+        button,
+        select {
+            text-transform: none;
+        }
+
+        button,
+        input:where([type="button"]),
+        input:where([type="reset"]),
+        input:where([type="submit"]) {
+            -webkit-appearance: button;
+            background-color: transparent;
+            background-image: none;
+        }
+
+        :-moz-focusring {
+            outline: auto;
+        }
+
+        :-moz-ui-invalid {
+            box-shadow: none;
+        }
+
+        progress {
+            vertical-align: baseline;
+        }
+
+        ::-webkit-inner-spin-button,
+        ::-webkit-outer-spin-button {
+            height: auto;
+        }
+
+        [type="search"] {
+            -webkit-appearance: textfield;
+            outline-offset: -2px;
+        }
+
+        ::-webkit-search-decoration {
+            -webkit-appearance: none;
+        }
+
+        ::-webkit-file-upload-button {
+            -webkit-appearance: button;
+            font: inherit;
+        }
+
+        summary {
+            display: list-item;
+        }
+
+        blockquote,
+        dd,
+        dl,
+        figure,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        hr,
+        p,
+        pre {
+            margin: 0;
+        }
+
+        fieldset {
+            margin: 0;
+        }
+
+        fieldset,
+        legend {
+            padding: 0;
+        }
+
+        menu,
+        ol,
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        dialog {
+            padding: 0;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+            color: #9ca3af;
+            opacity: 1;
+        }
+
+        [role="button"],
+        button {
+            cursor: pointer;
+        }
+
+        :disabled {
+            cursor: default;
+        }
+
+        audio,
+        canvas,
+        embed,
+        iframe,
+        img,
+        object,
+        svg,
+        video {
+            display: block;
+            vertical-align: middle;
+        }
+
+        img,
+        video {
+            height: auto;
+            max-width: 100%;
+        }
+
+        [hidden] {
+            display: none;
+        }
+
+        *,
+        :after,
+        :before {
+            --tw-border-spacing-x: 0;
+            --tw-border-spacing-y: 0;
+            --tw-translate-x: 0;
+            --tw-translate-y: 0;
+            --tw-rotate: 0;
+            --tw-skew-x: 0;
+            --tw-skew-y: 0;
+            --tw-scale-x: 1;
+            --tw-scale-y: 1;
+            --tw-pan-x: ;
+            --tw-pan-y: ;
+            --tw-pinch-zoom: ;
+            --tw-scroll-snap-strictness: proximity;
+            --tw-gradient-from-position: ;
+            --tw-gradient-via-position: ;
+            --tw-gradient-to-position: ;
+            --tw-ordinal: ;
+            --tw-slashed-zero: ;
+            --tw-numeric-figure: ;
+            --tw-numeric-spacing: ;
+            --tw-numeric-fraction: ;
+            --tw-ring-inset: ;
+            --tw-ring-offset-width: 0px;
+            --tw-ring-offset-color: #fff;
+            --tw-ring-color: rgba(59, 130, 246, 0.5);
+            --tw-ring-offset-shadow: 0 0 #0000;
+            --tw-ring-shadow: 0 0 #0000;
+            --tw-shadow: 0 0 #0000;
+            --tw-shadow-colored: 0 0 #0000;
+            --tw-blur: ;
+            --tw-brightness: ;
+            --tw-contrast: ;
+            --tw-grayscale: ;
+            --tw-hue-rotate: ;
+            --tw-invert: ;
+            --tw-saturate: ;
+            --tw-sepia: ;
+            --tw-drop-shadow: ;
+            --tw-backdrop-blur: ;
+            --tw-backdrop-brightness: ;
+            --tw-backdrop-contrast: ;
+            --tw-backdrop-grayscale: ;
+            --tw-backdrop-hue-rotate: ;
+            --tw-backdrop-invert: ;
+            --tw-backdrop-opacity: ;
+            --tw-backdrop-saturate: ;
+            --tw-backdrop-sepia: ;
+            --tw-contain-size: ;
+            --tw-contain-layout: ;
+            --tw-contain-paint: ;
+            --tw-contain-style: ;
+        }
+
+        ::backdrop {
+            --tw-border-spacing-x: 0;
+            --tw-border-spacing-y: 0;
+            --tw-translate-x: 0;
+            --tw-translate-y: 0;
+            --tw-rotate: 0;
+            --tw-skew-x: 0;
+            --tw-skew-y: 0;
+            --tw-scale-x: 1;
+            --tw-scale-y: 1;
+            --tw-pan-x: ;
+            --tw-pan-y: ;
+            --tw-pinch-zoom: ;
+            --tw-scroll-snap-strictness: proximity;
+            --tw-gradient-from-position: ;
+            --tw-gradient-via-position: ;
+            --tw-gradient-to-position: ;
+            --tw-ordinal: ;
+            --tw-slashed-zero: ;
+            --tw-numeric-figure: ;
+            --tw-numeric-spacing: ;
+            --tw-numeric-fraction: ;
+            --tw-ring-inset: ;
+            --tw-ring-offset-width: 0px;
+            --tw-ring-offset-color: #fff;
+            --tw-ring-color: rgba(59, 130, 246, 0.5);
+            --tw-ring-offset-shadow: 0 0 #0000;
+            --tw-ring-shadow: 0 0 #0000;
+            --tw-shadow: 0 0 #0000;
+            --tw-shadow-colored: 0 0 #0000;
+            --tw-blur: ;
+            --tw-brightness: ;
+            --tw-contrast: ;
+            --tw-grayscale: ;
+            --tw-hue-rotate: ;
+            --tw-invert: ;
+            --tw-saturate: ;
+            --tw-sepia: ;
+            --tw-drop-shadow: ;
+            --tw-backdrop-blur: ;
+            --tw-backdrop-brightness: ;
+            --tw-backdrop-contrast: ;
+            --tw-backdrop-grayscale: ;
+            --tw-backdrop-hue-rotate: ;
+            --tw-backdrop-invert: ;
+            --tw-backdrop-opacity: ;
+            --tw-backdrop-saturate: ;
+            --tw-backdrop-sepia: ;
+            --tw-contain-size: ;
+            --tw-contain-layout: ;
+            --tw-contain-paint: ;
+            --tw-contain-style: ;
+        }
+
+        #webcrumbs .col-span-2 {
+            grid-column: span 2 / span 2;
+        }
+
+        #webcrumbs .mb-8 {
+            margin-bottom: 32px;
+        }
+
+        #webcrumbs .mt-1 {
+            margin-top: 4px;
+        }
+
+        #webcrumbs .mt-3 {
+            margin-top: 12px;
+        }
+
+        #webcrumbs .flex {
             display: flex;
-            justify-content: center;
+        }
+
+        #webcrumbs .grid {
+            display: grid;
+        }
+
+        #webcrumbs .w-\[800px\] {
+            width: 800px;
+        }
+
+        #webcrumbs .flex-1 {
+            flex: 1 1 0%;
+        }
+
+        #webcrumbs .transform {
+            transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+        }
+
+        #webcrumbs .grid-cols-2 {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        #webcrumbs .flex-row {
+            flex-direction: row;
+        }
+
+        #webcrumbs .items-center {
             align-items: center;
-            height: 100vh;
-            color: #333;
         }
-        .container {
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            width: 350px;
-            text-align: center;
+
+        #webcrumbs .justify-between {
+            justify-content: space-between;
         }
-        .heading {
-            font-size: 24px;
-            font-weight: 500;
-            color: #4a4a4a;
-            margin-bottom: 20px;
+
+        #webcrumbs .gap-3 {
+            gap: 12px;
         }
-        .info-box {
-            background-color: #f0f4f8;
-            border-radius: 10px;
-            padding: 15px;
-            margin: 10px 0;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+        #webcrumbs .gap-4 {
+            gap: 16px;
         }
-        .info-box h2 {
-            font-size: 20px;
-            font-weight: 500;
-            margin: 10px 0;
-            color: #4a90e2;
+
+        #webcrumbs .gap-8 {
+            gap: 32px;
         }
-        .info-box p {
-            font-size: 16px;
-            margin: 5px 0;
+
+        #webcrumbs .rounded-full {
+            border-radius: 9999px;
         }
-        .address {
+
+        #webcrumbs .rounded-lg {
+            border-radius: 24px;
+        }
+
+        #webcrumbs .rounded-xl {
+            border-radius: 36px;
+        }
+
+        #webcrumbs .bg-emerald-50\/70 {
+            background-color: rgba(236, 253, 245, 0.7);
+        }
+
+        #webcrumbs .bg-neutral-100\/70 {
+            background-color: hsla(0, 0%, 93%, 0.7);
+        }
+
+        #webcrumbs .bg-orange-50\/70 {
+            background-color: rgba(255, 247, 237, 0.7);
+        }
+
+        #webcrumbs .bg-red-100 {
+            --tw-bg-opacity: 1;
+            background-color: rgb(254 226 226 / var(--tw-bg-opacity));
+        }
+
+        #webcrumbs .bg-red-50\/70 {
+            background-color: hsla(0, 86%, 97%, 0.7);
+        }
+
+        #webcrumbs .bg-white {
+            --tw-bg-opacity: 1;
+            background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+        }
+
+        #webcrumbs .p-6 {
+            padding: 24px;
+        }
+
+        #webcrumbs .p-8 {
+            padding: 32px;
+        }
+
+        #webcrumbs .px-3 {
+            padding-left: 12px;
+            padding-right: 12px;
+        }
+
+        #webcrumbs .py-1 {
+            padding-bottom: 4px;
+            padding-top: 4px;
+        }
+
+        #webcrumbs .text-4xl {
+            font-size: 36px;
+            line-height: 41.4px;
+        }
+
+        #webcrumbs .text-5xl {
+            font-size: 48px;
+            line-height: 52.800000000000004px;
+        }
+
+        #webcrumbs .text-lg {
+            font-size: 18px;
+            line-height: 27px;
+        }
+
+        #webcrumbs .text-sm {
             font-size: 14px;
-            color: #999;
-            margin-top: 10px;
+            line-height: 21px;
         }
-        .time {
-            font-size: 14px;
-            color: #888;
-            margin-top: 5px;
+
+        #webcrumbs .font-bold {
+            font-weight: 700;
+        }
+
+        #webcrumbs .font-medium {
+            font-weight: 500;
+        }
+
+        #webcrumbs .text-emerald-600 {
+            --tw-text-opacity: 1;
+            color: rgb(5 150 105 / var(--tw-text-opacity));
+        }
+
+        #webcrumbs .text-emerald-700 {
+            --tw-text-opacity: 1;
+            color: rgb(4 120 87 / var(--tw-text-opacity));
+        }
+
+        #webcrumbs .text-neutral-600 {
+            --tw-text-opacity: 1;
+            color: rgb(127 127 127 / var(--tw-text-opacity));
+        }
+
+        #webcrumbs .text-neutral-800 {
+            --tw-text-opacity: 1;
+            color: rgb(84 84 84 / var(--tw-text-opacity));
+        }
+
+        #webcrumbs .text-orange-600 {
+            --tw-text-opacity: 1;
+            color: rgb(234 88 12 / var(--tw-text-opacity));
+        }
+
+        #webcrumbs .text-orange-700 {
+            --tw-text-opacity: 1;
+            color: rgb(194 65 12 / var(--tw-text-opacity));
+        }
+
+        #webcrumbs .text-red-600 {
+            --tw-text-opacity: 1;
+            color: rgb(220 38 38 / var(--tw-text-opacity));
+        }
+
+        #webcrumbs .text-red-700 {
+            --tw-text-opacity: 1;
+            color: rgb(185 28 28 / var(--tw-text-opacity));
+        }
+
+        #webcrumbs .shadow-2xl {
+            --tw-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
+            box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+                var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+        }
+
+        #webcrumbs .backdrop-blur-sm {
+            --tw-backdrop-blur: blur(4px);
+            -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+            backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+        }
+
+        #webcrumbs .transition-all {
+            transition-duration: 0.15s;
+            transition-property: all;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        #webcrumbs .transition-transform {
+            transition-duration: 0.15s;
+            transition-property: transform;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        #webcrumbs .duration-300 {
+            transition-duration: 0.3s;
+        }
+
+        #webcrumbs {
+            font-family: Open Sans !important;
+            font-size: 16px !important;
+        }
+
+        #webcrumbs .hover\:-translate-y-1:hover {
+            --tw-translate-y: -4px;
+        }
+
+        #webcrumbs .hover\:-translate-y-1:hover,
+        #webcrumbs .hover\:scale-\[1\.02\]:hover {
+            transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+        }
+
+        #webcrumbs .hover\:scale-\[1\.02\]:hover {
+            --tw-scale-x: 1.02;
+            --tw-scale-y: 1.02;
+        }
+
+        #webcrumbs .hover\:bg-emerald-50\/90:hover {
+            background-color: rgba(236, 253, 245, 0.9);
+        }
+
+        #webcrumbs .hover\:bg-neutral-100\/90:hover {
+            background-color: hsla(0, 0%, 93%, 0.9);
+        }
+
+        #webcrumbs .hover\:bg-orange-50\/90:hover {
+            background-color: rgba(255, 247, 237, 0.9);
+        }
+
+        #webcrumbs .hover\:bg-red-50\/90:hover {
+            background-color: hsla(0, 86%, 97%, 0.9);
+        }
+
+        body {
+            line-height: inherit;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            min-width: 100vw;
+            min-height: 100vh;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #ffffff, #d4d4d4);
         }
     </style>
 </head>
+
 <body>
-    <div class="container">
-        <div class="heading">현재 환경 데이터</div>
-
-        <div class="info-box">
-            <h2>현재 시간 (Current Time)</h2>
-            <p id="current-time">로딩 중...</p>
-        </div>
-        
-        <div class="info-box">
-            <h2>온습도 (Temperature & Humidity)</h2>
-            <p id="temperature">로딩 중...</p>
-            <p id="humidity">로딩 중...</p>
-        </div>
-
-        <div class="info-box">
-            <h2>미세먼지 (Fine Dust)</h2>
-            <p id="pm25">로딩 중...</p>
-        </div>
-
-        <div class="address">
-            <p>주소: 경상남도 양산시 물금읍 가촌리 1277-4</p>
+    <div id="webcrumbs">
+        <div
+            class="w-[800px] bg-white rounded-xl shadow-2xl p-8 transform hover:scale-[1.02] transition-transform duration-300">
+            <div class="grid grid-cols-2 gap-8 mb-8">
+                <div class="col-span-2 flex gap-8">
+                    <div
+                        class="flex-1 bg-emerald-50/70 rounded-lg p-6 backdrop-blur-sm hover:bg-emerald-50/90 transition-all duration-300 transform hover:-translate-y-1">
+                        <span class="material-symbols-outlined text-5xl text-emerald-600">thermostat</span>
+                        <div class="mt-3">
+                            <h3 class="text-emerald-600 text-sm font-medium">온도</h3>
+                            <p id="temperature" class="text-emerald-700 text-4xl font-bold">로딩중...</p>
+                        </div>
+                    </div>
+                    <div
+                        class="flex-1 bg-orange-50/70 rounded-lg p-6 backdrop-blur-sm hover:bg-orange-50/90 transition-all duration-300 transform hover:-translate-y-1">
+                        <span class="material-symbols-outlined text-5xl text-orange-600">sunny</span>
+                        <div class="mt-3">
+                            <h3 class="text-orange-600 text-sm font-medium">현재 시간</h3>
+                            <p id="current-time" class="text-orange-700 text-4xl font-bold">로딩중...</p>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="bg-emerald-50/70 rounded-lg p-6 backdrop-blur-sm hover:bg-emerald-50/90 transition-all duration-300 transform hover:-translate-y-1">
+                    <span class="material-symbols-outlined text-5xl text-emerald-600">humidity_mid</span>
+                    <div class="mt-3">
+                        <h3 class="text-emerald-600 text-sm font-medium">습도</h3>
+                        <p id="humidity" class="text-emerald-700 text-4xl font-bold">로딩중...</p>
+                    </div>
+                </div>
+                <div
+                    class="bg-red-50/70 rounded-lg p-6 backdrop-blur-sm hover:bg-red-50/90 transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="flex items-center justify-between"> <span
+                            class="material-symbols-outlined text-5xl text-red-600">air</span> <span
+                            class="px-3 py-1 rounded-full bg-red-100 text-red-600 text-sm font-medium">나쁨</span> </div>
+                    <div class="mt-3">
+                        <h3 class="text-red-600 text-sm font-medium">미세먼지 (PM2.5)</h3>
+                        <p id="pm25" class="text-red-700 text-4xl font-bold">로딩중...</p>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="bg-neutral-100/70 rounded-lg p-6 backdrop-blur-sm hover:bg-neutral-100/90 transition-all duration-300">
+                <div class="flex items-center gap-3"> <span
+                        class="material-symbols-outlined text-4xl text-neutral-600">location_on</span>
+                    <div>
+                        <h3 class="text-neutral-600 text-sm font-medium">주소</h3>
+                        <p class="text-neutral-800 text-lg font-medium mt-1">경상남도 양산시 물금읍 가촌리 1277-4</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
-    <script>
-        function updateData() {
-            fetch('/get_data')  // Flask 서버의 /get_data API 호출
-                .then(response => response.json())
-                .then(data => {
-                    // 서버에서 받은 데이터로 UI 업데이트
-                    document.getElementById('temperature').textContent = `온도: ${data.temperature}°C`;
-                    document.getElementById('humidity').textContent = `습도: ${data.humidity}%`;
-                    document.getElementById('pm25').textContent = `미세먼지 (PM 2.5): ${data.pm25} µg/m³`;
-                    document.getElementById('current-time').textContent = `현재 시간: ${data.current_time}`;
-                })
-                .catch(error => {
-                    console.error('데이터를 가져오는 데 오류가 발생했습니다:', error);
-                });
-        }
 
-        // 페이지 로드 시 초기 데이터 업데이트
-        updateData();
-
-        // 1초마다 updateData() 함수 호출
-        setInterval(updateData, 1000);
-    </script>
 </body>
+
 </html>
+
+<script>
+    function updateData() {
+        fetch('/get_data')  // Flask 서버의 /get_data API 호출
+            .then(response => response.json())
+            .then(data => {
+                // 서버에서 받은 데이터로 UI 업데이트
+                document.getElementById('temperature').textContent = `${data.temperature}`;
+                document.getElementById('current-time').textContent = `${data.current_time}`;
+                document.getElementById('humidity').textContent = `${data.humidity}`;
+                document.getElementById('pm25').textContent = `${data.pm25}`;
+            })
+            .catch(error => {
+                console.error('데이터를 가져오는 데 오류가 발생했습니다:', error);
+            });
+    }
+
+    // 페이지 로드 시 초기 데이터 업데이트
+    updateData();
+
+    // 1초마다 updateData() 함수 호출
+    setInterval(updateData, 1000);
+</script>
