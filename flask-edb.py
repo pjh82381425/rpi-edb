@@ -1,3 +1,6 @@
+
+# 아침 점심 저녁 아이콘, get_sensor_data 만들어야 함
+
 from flask import Flask, render_template, jsonify
 import datetime
 
