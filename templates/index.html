@@ -63,6 +63,11 @@
 <body>
     <div class="container">
         <div class="heading">현재 환경 데이터</div>
+
+        <div class="info-box">
+            <h2>현재 시간 (Current Time)</h2>
+            <p id="current-time">로딩 중...</p>
+        </div>
         
         <div class="info-box">
             <h2>온습도 (Temperature & Humidity)</h2>
@@ -75,13 +80,8 @@
             <p id="pm25">로딩 중...</p>
         </div>
 
-        <div class="info-box">
-            <h2>현재 시간 (Current Time)</h2>
-            <p id="current-time">로딩 중...</p>
-        </div>
-
         <div class="address">
-            <p>학교 주소: 경상남도 양산시 물금읍 가촌리 1277-4</p>
+            <p>주소: 경상남도 양산시 물금읍 가촌리 1277-4</p>
         </div>
     </div>
 
@@ -104,8 +104,8 @@
         // 페이지 로드 시 초기 데이터 업데이트
         updateData();
 
-        // 0.5초마다 updateData() 함수 호출
-        setInterval(updateData, 1000);  // 500ms (0.5초)마다 자동으로 호출
+        // 1초마다 updateData() 함수 호출
+        setInterval(updateData, 1000);
     </script>
 </body>
 </html>
