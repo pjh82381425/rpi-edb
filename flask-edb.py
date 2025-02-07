@@ -1,15 +1,10 @@
 
-# 아침 점심 저녁 아이콘, get_sensor_data 만들어야 함
+# 아침 점심 저녁 아이콘, read 완성해야 함
 
+from lib import read
 from flask import Flask, render_template, jsonify
 import datetime
 
-def get_sensor_data():
-    temperature = 25
-    humidity = 45
-    pm25 = 40
-    return temperature, humidity, pm25
-    
 app = Flask(__name__)
 
 @app.route('/')
@@ -19,7 +14,7 @@ def index():
 @app.route('/get_data')
 def get_data():
     """Flask API: 아두이노 센서 데이터 제공"""
-    temperature, humidity, pm25 = get_sensor_data()
+    pm25 = 10
 
     # 현재 시간 가져오기 (strftime 사용)
     now = datetime.datetime.now()
@@ -27,6 +22,9 @@ def get_data():
     hour = now.strftime('%I').lstrip('0')
     minute = now.strftime('%M')
     second = now.strftime('%S').zfill(2)
+    
+    environment_data = read()
+    temperature, humidity = map(int, environment_data.split(','))
 
     # JSON 응답 생성
     data = {
@@ -42,4 +40,7 @@ def get_data():
     return jsonify(data)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=5000, threaded=True)   # gpt가 알려준거
+    
+
