@@ -17,6 +17,10 @@
 
     @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
 
+    #a, #b, #c {
+        display: none;
+    }
+
     #current-time {
         font-family: 'Spoqa Han Sans Neo', 'sans-serif';
         ;
@@ -636,7 +640,9 @@
                 <div class="w-3 h-3 rounded-full bg-green-500 hover:opacity-80 transition-opacity"></div>
             </div>
             <div class="flex justify-center items-center gap-2 mb-12">
-                <span class="material-symbols-outlined hover:scale-110 transition-transform">light_mode</span>
+                <span class="material-symbols-outlined text-4xl mb-2" id="a">sunny</span>
+                <span class="material-symbols-outlined text-4xl mb-2" id="b">light_mode</span>
+                <span class="material-symbols-outlined text-4xl mb-2" id="c">dark_mode</span>
                 <section style="margin: 0; display: flex; justify-content: center; align-items: center;">
                     <span id="current-time" class="text-2xl font-medium">--:--</span>
                     <span id="second" class="text-1xl font-medium"
@@ -701,7 +707,7 @@
 
 <script>
     function updateData() {
-        fetch('/get_data')  // Flask 서버의 /get_data API 호출
+        fetch('/get_data')  // 서버의 /get_data API 호출
             .then(response => response.json())
             .then(data => {
                 // ✅ 현재 시간 업데이트
@@ -709,6 +715,22 @@
                 const second = `${data.second}`;
                 document.getElementById('current-time').textContent = current_time;
                 document.getElementById('second').textContent = second;
+
+                // ✅ 시간 아이콘 업데이트
+                let hour = ~~data.hour_24; // 받은 데이터에서 24시간제 시간변수를 정수로 저장
+                if (6 < hour && hour < 12) {
+                    document.getElementById("a").style.display = "block";
+                    document.getElementById("b").style.display = "none";
+                    document.getElementById("c").style.display = "none";
+                } else if (12 < hour && hour < 18) {
+                    document.getElementById("a").style.display = "none";
+                    document.getElementById("b").style.display = "block";
+                    document.getElementById("c").style.display = "none";
+                } else {
+                    document.getElementById("a").style.display = "none";
+                    document.getElementById("b").style.display = "none";
+                    document.getElementById("c").style.display = "block";
+                }
 
                 // ✅ 온도 업데이트
                 const temperature = data.temperature ?? 'N/A';
