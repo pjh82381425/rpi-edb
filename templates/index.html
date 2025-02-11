@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>환경 모니터링 시스템</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 
 <body>
     <div id="webcrumbs">
-        <div class="w-[600px] bg-white/80 backdrop-blur-lg rounded-xl shadow-lg p-8 border-[0.5px] border-gray-100">
+        <div class="custom-container bg-white/80 backdrop-blur-lg rounded-xl shadow-lg p-8 border-[0.5px] border-gray-100">
             <div class="flex gap-2 mb-6">
                 <div class="w-3 h-3 rounded-full bg-red-500 hover:opacity-80 transition-opacity"></div>
                 <div class="w-3 h-3 rounded-full bg-yellow-500 hover:opacity-80 transition-opacity"></div>
@@ -82,6 +82,6 @@
         </div>
 </body>
 
-<script src="script.js"></script>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
 
 </html>
