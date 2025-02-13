@@ -554,6 +554,11 @@ video {
     line-height: 52.800000000000004px;
 }
 
+#webcrumbs .text-15xl {
+    font-size: 90px;
+    line-height: 100px;
+}
+a
 #webcrumbs .text-base {
     font-size: 16px;
     line-height: 25.6px;
