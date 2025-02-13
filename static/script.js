@@ -73,6 +73,10 @@ function updateData() {
         });
 }
 
+// 화면의 너비와 높이를 픽셀 단위로 출력
+console.log("Width: " + window.innerWidth + "px");
+console.log("Height: " + window.innerHeight + "px");
+
 // ✅ 초기 데이터 업데이트 및 1초마다 갱신
 updateData();
 setInterval(updateData, 1000);
