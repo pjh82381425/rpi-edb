@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>환경 모니터링 시스템</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <!-- <link rel="stylesheet" href="styles.css"> -->
 </head>
 
 <body>
@@ -16,65 +17,64 @@
                 <div class="w-3 h-3 rounded-full bg-yellow-500 hover:opacity-80 transition-opacity"></div>
                 <div class="w-3 h-3 rounded-full bg-green-500 hover:opacity-80 transition-opacity"></div>
             </div>
-            <div class="flex justify-center items-center gap-2 mb-12">
-                <span class="material-symbols-outlined text-4xl mb-2" id="a">sunny</span>
-                <span class="material-symbols-outlined text-4xl mb-2" id="b">light_mode</span>
-                <span class="material-symbols-outlined text-4xl mb-2" id="c">dark_mode</span>
+            <div class="center custom-clock-container flex justify-center items-center gap-2 mb-12">
+                <span class="material-symbols-outlined font-medium text-5xl mb-2" id="a">sunny</span>
+                <span class="material-symbols-outlined font-medium text-5xl mb-2" id="b">light_mode</span>
+                <span class="material-symbols-outlined font-medium text-5xl mb-2" id="c">dark_mode</span>
                 <section style="margin: 0; display: flex; justify-content: center; align-items: center;">
-                    <span id="current-time" class="text-2xl font-medium">--:--</span>
-                    <span id="second" class="text-1xl font-medium"
-                        style="padding-top: 6px; padding-left: 3px;">--</span>
+                    <span id="current-time" class="text-5xl font-medium">--:--</span>
+                    <span id="second" class="text-2xl font-medium" style="padding-top: 12px; padding-left: 4px;">--</span>
                 </section>
             </div>
-            <div class="grid grid-cols-2 gap-8">
+            <div class="center grid grid-cols-2 gap-8">
                 <!-- 온도 -->
                 <div id="temperature-box"
-                    class="flex flex-col gap-2 p-4 rounded-xl hover:bg-gray-50/50 transition-colors status-box">
+                    class="center custom-item-container flex flex-col gap-2 p-4 rounded-xl hover:bg-gray-50/50 transition-colors status-box">
                     <div class="flex items-center justify-center gap-2">
                         <span
                             class="material-symbols-outlined hover:scale-110 transition-transform">device_thermostat</span>
                         <span class="text-base">온도</span>
                     </div>
                     <div class="flex items-end justify-center gap-1">
-                        <span id="temperature" class="text-5xl font-bold">--</span>
+                        <span id="temperature" class="text-5xl font-medium">--</span>
                         <span class="text-3xl">°C</span>
                     </div>
                 </div>
 
                 <!-- 습도 -->
                 <div id="humidity-box"
-                    class="flex flex-col gap-2 p-4 rounded-xl hover:bg-gray-50/50 transition-colors status-box">
+                    class="center custom-item-container flex flex-col gap-2 p-4 rounded-xl hover:bg-gray-50/50 transition-colors status-box">
                     <div class="flex items-center justify-center gap-2">
                         <span class="material-symbols-outlined hover:scale-110 transition-transform">water_drop</span>
                         <span class="text-base">습도</span>
                     </div>
                     <div class="flex items-end justify-center gap-1">
-                        <span id="humidity" class="text-5xl font-bold">--</span>
+                        <span id="humidity" class="text-5xl font-medium">--</span>
                         <span class="text-3xl">%</span>
                     </div>
                 </div>
 
                 <!-- 미세먼지 -->
                 <div id="pm25-box"
-                    class="flex flex-col gap-2 p-4 rounded-xl hover:bg-gray-50/50 transition-colors status-box">
+                    class="center custom-item-container flex flex-col gap-2 p-4 rounded-xl hover:bg-gray-50/50 transition-colors status-box">
                     <div class="flex items-center justify-center gap-2">
                         <span class="material-symbols-outlined hover:scale-110 transition-transform">air</span>
                         <span class="text-base">공기질</span>
                     </div>
                     <div class="flex items-end justify-center gap-1">
-                        <span id="pm25" class="text-5xl font-bold">--</span>
+                        <span id="pm25" class="text-5xl font-medium">--</span>
                         <span class="text-3xl">μg/m³</span>
                     </div>
                 </div>
-                <div class="flex flex-col gap-2 p-4 rounded-xl hover:bg-gray-50/50 transition-colors">
+                <div class="center custom-item-container flex flex-col gap-2 p-4 rounded-xl hover:bg-gray-50/50 transition-colors">
                     <div class="flex items-center justify-center gap-2"> <span
                             class="material-symbols-outlined hover:scale-110 transition-transform">location_on</span>
                         <span class="text-base">위치</span>
                     </div>
                     <section style="margin: 0;">
-                        <div class="flex justify-center">경상남도 양산시 물금읍<span class="text-5xl font-bold"></span>
+                        <div class="flex justify-center">경상남도 양산시 물금읍<span class="text-5xl font-medium"></span>
                         </div>
-                        <div class="flex justify-center">가촌리 1277-4<span class="text-5xl font-bold"></span>
+                        <div class="flex justify-center">가촌리 1277-4<span class="text-5xl font-medium"></span>
                         </div>
                     </section>
                 </div>
