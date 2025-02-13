@@ -640,7 +640,6 @@ a
 
 body {
     line-height: inherit;
-    padding: 24px;
     display: flex;
     flex-direction: column;
     min-width: 100vw;
