@@ -1,14 +1,19 @@
-void setup() {
-  Serial.begin(9600); // 시리얼 통신 속도 설정
+#include <dht11.h>
+#define DHT11PIN 2
+
+dht11 DHT11;
+
+void setup()
+{
+  Serial.begin(9600);
 }
 
-void loop() {
-  int temp = random(20, 30);  // 임의의 온도 값 (20~30도)
-  int hum = random(40, 60);   // 임의의 습도 값 (40~60%)
-
-  Serial.print(temp);
+void loop()
+{
+  int chk = DHT11.read(DHT11PIN);
+  Serial.print((int)DHT11.humidity);
   Serial.print(",");
-  Serial.println(hum);
-
-  delay(500); // 0.5초 대기
+  Serial.print((int)DHT11.temperature);
+  Serial.println();
+  delay(250);
 }

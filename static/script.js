@@ -1,5 +1,5 @@
-function updateData() {
-    fetch('/get_data')  // 서버의 /get_data API 호출
+function updateTime() {
+    fetch('/get_time')
         .then(response => response.json())
         .then(data => {
             // ✅ 현재 시간 업데이트
@@ -14,7 +14,7 @@ function updateData() {
                 document.getElementById("a").style.display = "block";
                 document.getElementById("b").style.display = "none";
                 document.getElementById("c").style.display = "none";
-            } else if (12 < hour && hour < 18) {
+            } else if (12 <= hour && hour <= 18) {
                 document.getElementById("a").style.display = "none";
                 document.getElementById("b").style.display = "block";
                 document.getElementById("c").style.display = "none";
@@ -23,7 +23,16 @@ function updateData() {
                 document.getElementById("b").style.display = "none";
                 document.getElementById("c").style.display = "block";
             }
+        })
+        .catch(error => {
+            console.error('데이터를 가져오는 데 오류가 발생했습니다:', error);
+        });
+}
 
+function updateEnvironment() {
+    fetch('/get_data')
+        .then(response => response.json())
+        .then(data => {
             // ✅ 온도 업데이트
             const temperature = data.temperature ?? 'N/A';
             document.getElementById('temperature').textContent = `${temperature}`;
@@ -65,18 +74,14 @@ function updateData() {
                 let pm25_alpha = (pm25 / 100) * 0.3;
                 pm25Box.style.backgroundColor = `rgba(100, 150, 255, ${pm25_alpha})`;
             }
-
-
         })
         .catch(error => {
             console.error('데이터를 가져오는 데 오류가 발생했습니다:', error);
         });
 }
 
-// 화면의 너비와 높이를 픽셀 단위로 출력
-console.log("Width: " + window.innerWidth + "px");
-console.log("Height: " + window.innerHeight + "px");
-
-// ✅ 초기 데이터 업데이트 및 1초마다 갱신
-updateData();
-setInterval(updateData, 1000);
+// ✅ 초기 데이터 업데이트 및 각기 다른 간격으로 갱신
+updateTime();
+updateEnvironment();
+setInterval(updateTime, 1000); // 1초마다 시간 업데이트
+setInterval(updateEnvironment, 3000); // 3초마다 환경 데이터 업데이트
