@@ -22,7 +22,7 @@ void loop()
     Serial.print(",");
     Serial.print((int)DHT11.temperature);
     Serial.println();
-    delay(250);
+    delay(10);
   }
 }
 
