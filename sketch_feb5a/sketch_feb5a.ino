@@ -13,6 +13,8 @@ void setup()
 
 void loop()
 {
+  if (HC12.available()) {
+    }
   String input = HC12.readStringUntil('\n');
   Serial.print(input);
   Serial.print(",");
