@@ -43,7 +43,7 @@ def get_hour_24():
 @app.route('/get_data')
 def get_data():
     """Flask API: 아두이노 센서 데이터 제공"""
-    humidity, temperature, pm25 = read()
+    temperature, humidity, pm25 = read()
 
     # JSON 응답 생성
     data = {
@@ -58,7 +58,7 @@ def get_data():
 def get_ver():
     # JSON 응답 생성
     data = {
-        "ver": "ver = 0.2.0"
+        "ver": "ver = 0.2.1"
     }
 
     return jsonify(data)
