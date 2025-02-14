@@ -7,4 +7,4 @@ intro
 <br>
 <br>
 raspberrypi
-<img src="1.png" alt="이미지 로딩중...">
+<img src="3.png" alt="이미지 로딩중...">
