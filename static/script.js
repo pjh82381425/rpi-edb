@@ -84,4 +84,4 @@ function updateEnvironment() {
 updateTime();
 updateEnvironment();
 setInterval(updateTime, 1000); // 1초마다 시간 업데이트
-setInterval(updateEnvironment, 3500); // 3.5초마다 환경 데이터 업데이트
+setInterval(updateEnvironment, 300); // 3초마다 환경 데이터 업데이트
