@@ -1,7 +1,7 @@
 import serial
 
 def read():
-    PORT = "COM3"  # 🔥 올바른 포트로 변경하세요.
+    PORT = "/dev/ttyUSB0"  # 🔥 올바른 포트로 변경
     BAUDRATE = 9600
     ser = serial.Serial(PORT, BAUDRATE, timeout=2)  # timeout 증가
     ser.flushInput()  # 🔥 기존 버퍼 삭제
