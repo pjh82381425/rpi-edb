@@ -3,7 +3,7 @@
 #define DHT11PIN 2
 
 dht11 DHT11;
-SoftwareSerial HC12(2, 3); // 아두이노 2번을 HC-12 TX Pin에 연결, 3번을 HC-12 RX Pin에 연결.
+SoftwareSerial HC12(3, 4); // 아두이노 2번을 HC-12 TX Pin에 연결, 3번을 HC-12 RX Pin에 연결.
 
 void setup()
 {
@@ -13,16 +13,25 @@ void setup()
 
 void loop()
 {
-  while (HC12.available()) {
-    String input = HC12.readStringUntil('\n');
-    Serial.print(input);
-    Serial.print(",");
+  if (HC12.available()) {
     int chk = DHT11.read(DHT11PIN);
+    Serial.print((int)DHT11.temperature);
+    Serial.print(",");
     Serial.print((int)DHT11.humidity);
     Serial.print(",");
-    Serial.print((int)DHT11.temperature);
+    String input = HC12.readStringUntil('\n');
+    Serial.print(input);
     Serial.println();
-    delay(10);
+    delay(250);
+  }
+  else {
+    int chk = DHT11.read(DHT11PIN);
+    Serial.print((int)DHT11.temperature);
+    Serial.print(",");
+    Serial.print((int)DHT11.humidity);
+    Serial.print(",NULL");
+    Serial.println();
+    delay(250);
   }
 }
 
