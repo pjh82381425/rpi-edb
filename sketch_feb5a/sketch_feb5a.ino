@@ -13,17 +13,17 @@ void setup()
 
 void loop()
 {
-  if (HC12.available()) {
-    }
-  String input = HC12.readStringUntil('\n');
-  Serial.print(input);
-  Serial.print(",");
-  int chk = DHT11.read(DHT11PIN);
-  Serial.print((int)DHT11.humidity);
-  Serial.print(",");
-  Serial.print((int)DHT11.temperature);
-  Serial.println();
-  delay(250);
+  while (HC12.available()) {
+    String input = HC12.readStringUntil('\n');
+    Serial.print(input);
+    Serial.print(",");
+    int chk = DHT11.read(DHT11PIN);
+    Serial.print((int)DHT11.humidity);
+    Serial.print(",");
+    Serial.print((int)DHT11.temperature);
+    Serial.println();
+    delay(250);
+  }
 }
 
 // void loop() { 
