@@ -7,7 +7,16 @@ function updateTime() {
             const second = `${data.second}`;
             document.getElementById('current-time').textContent = current_time;
             document.getElementById('second').textContent = second;
+        })
+        .catch(error => {
+            console.error('데이터를 가져오는 데 오류가 발생했습니다:', error);
+        });
+}
 
+function updateIcon() {
+    fetch('/get_hour_24')
+        .then(response => response.json())
+        .then(data => {
             // ✅ 시간 아이콘 업데이트
             let hour_24 = ~~data.hour_24; // 받은 데이터에서 24시간제 시간변수를 정수로 저장
             if (6 < hour_24 && hour_24 < 12) {
@@ -80,8 +89,23 @@ function updateEnvironment() {
         });
 }
 
+function updateVer() {
+    fetch('/get_ver')
+        .then(response => response.json())
+        .then(data => {
+            const ver = data.ver ?? 'N/A';
+            document.getElementById('ver').textContent = `${ver}`;
+        })
+        .catch(error => {
+            console.error('데이터를 가져오는 데 오류가 발생했습니다:', error);
+        });
+}
+
 // ✅ 초기 데이터 업데이트 및 각기 다른 간격으로 갱신
 updateTime();
 updateEnvironment();
+updateIcon();
+updateVer();
 setInterval(updateTime, 1000); // 1초마다 시간 업데이트
 setInterval(updateEnvironment, 3000); // 3초마다 환경 데이터 업데이트
+setInterval(updateIcon, 60000); // 1분마다 아이콘 업데이트

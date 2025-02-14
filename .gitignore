@@ -6,3 +6,5 @@ node_modules/
 .node_modules/
 conda/
 .conda/
+vscode/
+.vscode/
