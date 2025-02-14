@@ -9,12 +9,12 @@ function updateTime() {
             document.getElementById('second').textContent = second;
 
             // ✅ 시간 아이콘 업데이트
-            let hour = ~~data.hour_24; // 받은 데이터에서 24시간제 시간변수를 정수로 저장
-            if (6 < hour && hour < 12) {
+            let hour_24 = ~~data.hour_24; // 받은 데이터에서 24시간제 시간변수를 정수로 저장
+            if (6 < hour_24 && hour_24 < 12) {
                 document.getElementById("a").style.display = "block";
                 document.getElementById("b").style.display = "none";
                 document.getElementById("c").style.display = "none";
-            } else if (12 <= hour && hour <= 18) {
+            } else if (12 <= hour_24 && hour_24 <= 18) {
                 document.getElementById("a").style.display = "none";
                 document.getElementById("b").style.display = "block";
                 document.getElementById("c").style.display = "none";
