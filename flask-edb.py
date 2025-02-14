@@ -46,6 +46,6 @@ def get_data():
     return jsonify(data)
 
 if __name__ == '__main__':
-    # app.run(host='0.0.0.0', port=5000, debug=True)
-    app.run(host='0.0.0.0', port=5000, threaded=True) # 성능 최적화  
+    # app.run(host='0.0.0.0', port=5001, debug=True)
+    app.run(host='0.0.0.0', port=5001, threaded=True) # 성능 최적화  
 
