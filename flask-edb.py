@@ -78,7 +78,7 @@ def get_data():
 def get_ver():
     # JSON 응답 생성
     data = {
-        "ver": "ver = 0.2.3"
+        "ver": "ver = 0.2.2"
     }
 
     return jsonify(data)
