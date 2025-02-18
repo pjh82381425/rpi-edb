@@ -107,5 +107,5 @@ updateEnvironment();
 updateIcon();
 updateVer();
 setInterval(updateTime, 1000); // 1초마다 시간 업데이트
-setInterval(updateEnvironment, 3000); // 3초마다 환경 데이터 업데이트
-setInterval(updateIcon, 60000); // 1분마다 아이콘 업데이트
+setInterval(updateEnvironment, 2500); // 2.5초마다 환경 데이터 업데이트
+setInterval(updateIcon, 60500); // 1분+0.5초 마다 아이콘 업데이트
