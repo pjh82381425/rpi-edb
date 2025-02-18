@@ -1,0 +1,61 @@
+2025-02-18 18:51:07,302 ERROR lib Error in lib.py: could not open port '/dev/ttyACM0': FileNotFoundError(2, 'ÁöÁ¤µÈ °æ·Î¸¦ Ã£À» ¼ö ¾ø½À´Ï´Ù.', None, 3)
+2025-02-18 18:51:07,473 INFO werkzeug [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.0.31:5001
+2025-02-18 18:51:07,473 INFO werkzeug [33mPress CTRL+C to quit[0m
+2025-02-18 18:54:59,841 ERROR lib Error in lib.py: could not open port '/dev/ttyACM0': FileNotFoundError(2, 'ÁöÁ¤µÈ °æ·Î¸¦ Ã£À» ¼ö ¾ø½À´Ï´Ù.', None, 3)
+2025-02-18 18:55:00,011 INFO werkzeug [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.0.31:5001
+2025-02-18 18:55:00,012 INFO werkzeug [33mPress CTRL+C to quit[0m
+2025-02-18 18:58:17,805 ERROR root Error in lib.py: could not open port '/dev/ttyACM0': FileNotFoundError(2, 'ÁöÁ¤µÈ °æ·Î¸¦ Ã£À» ¼ö ¾ø½À´Ï´Ù.', None, 3)
+2025-02-18 18:58:17,972 INFO werkzeug [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.0.31:5001
+2025-02-18 18:58:17,972 INFO werkzeug [33mPress CTRL+C to quit[0m
+2025-02-18 18:58:38,434 ERROR root Error in lib.py: could not open port '/dev/ttyACM0': FileNotFoundError(2, 'ÁöÁ¤µÈ °æ·Î¸¦ Ã£À» ¼ö ¾ø½À´Ï´Ù.', None, 3)
+2025-02-18 18:58:38,606 INFO werkzeug [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.0.31:5001
+2025-02-18 18:58:38,606 INFO werkzeug [33mPress CTRL+C to quit[0m
+2025-02-18 18:58:58,139 ERROR lib Error in lib.py: could not open port '/dev/ttyACM0': FileNotFoundError(2, 'ÁöÁ¤µÈ °æ·Î¸¦ Ã£À» ¼ö ¾ø½À´Ï´Ù.', None, 3)
+2025-02-18 18:58:58,303 INFO werkzeug [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.0.31:5001
+2025-02-18 18:58:58,303 INFO werkzeug [33mPress CTRL+C to quit[0m
+2025-02-18 18:59:09,412 ERROR lib Error in lib.py: could not open port '/dev/ttyACM0': FileNotFoundError(2, 'ÁöÁ¤µÈ °æ·Î¸¦ Ã£À» ¼ö ¾ø½À´Ï´Ù.', None, 3)
+2025-02-18 18:59:09,586 INFO werkzeug [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.0.31:5001
+2025-02-18 18:59:09,586 INFO werkzeug [33mPress CTRL+C to quit[0m
+2025-02-18 18:59:10,153 INFO werkzeug 127.0.0.1 - - [18/Feb/2025 18:59:10] "GET / HTTP/1.1" 200 -
+2025-02-18 18:59:10,218 INFO werkzeug 127.0.0.1 - - [18/Feb/2025 18:59:10] "GET /static/script.js HTTP/1.1" 200 -
+2025-02-18 18:59:10,219 INFO werkzeug 127.0.0.1 - - [18/Feb/2025 18:59:10] "GET /static/styles.css HTTP/1.1" 200 -
+2025-02-18 18:59:10,721 INFO werkzeug 127.0.0.1 - - [18/Feb/2025 18:59:10] "GET /get_time HTTP/1.1" 200 -
+2025-02-18 18:59:10,722 ERROR lib Error in lib.py: could not open port '/dev/ttyACM0': FileNotFoundError(2, 'ÁöÁ¤µÈ °æ·Î¸¦ Ã£À» ¼ö ¾ø½À´Ï´Ù.', None, 3)
+2025-02-18 18:59:10,722 INFO werkzeug 127.0.0.1 - - [18/Feb/2025 18:59:10] "GET /get_data HTTP/1.1" 200 -
+2025-02-18 18:59:10,722 INFO werkzeug 127.0.0.1 - - [18/Feb/2025 18:59:10] "GET /get_hour_24 HTTP/1.1" 200 -
+2025-02-18 18:59:10,723 INFO werkzeug 127.0.0.1 - - [18/Feb/2025 18:59:10] "GET /get_ver HTTP/1.1" 200 -
+2025-02-18 18:59:11,435 INFO werkzeug 127.0.0.1 - - [18/Feb/2025 18:59:11] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-02-18 18:59:11,729 INFO werkzeug 127.0.0.1 - - [18/Feb/2025 18:59:11] "GET /get_time HTTP/1.1" 200 -
+2025-02-18 18:59:12,722 INFO werkzeug 127.0.0.1 - - [18/Feb/2025 18:59:12] "GET /get_time HTTP/1.1" 200 -
+2025-02-18 18:59:13,725 INFO werkzeug 127.0.0.1 - - [18/Feb/2025 18:59:13] "GET /get_time HTTP/1.1" 200 -
+2025-02-18 18:59:13,725 ERROR lib Error in lib.py: could not open port '/dev/ttyACM0': FileNotFoundError(2, 'ÁöÁ¤µÈ °æ·Î¸¦ Ã£À» ¼ö ¾ø½À´Ï´Ù.', None, 3)
+2025-02-18 18:59:13,726 INFO werkzeug 127.0.0.1 - - [18/Feb/2025 18:59:13] "GET /get_data HTTP/1.1" 200 -
+2025-02-18 18:59:14,731 INFO werkzeug 127.0.0.1 - - [18/Feb/2025 18:59:14] "GET /get_time HTTP/1.1" 200 -
+2025-02-18 18:59:15,731 INFO werkzeug 127.0.0.1 - - [18/Feb/2025 18:59:15] "GET /get_time HTTP/1.1" 200 -
+2025-02-18 18:59:16,735 INFO werkzeug 127.0.0.1 - - [18/Feb/2025 18:59:16] "GET /get_time HTTP/1.1" 200 -
+2025-02-18 18:59:16,735 ERROR lib Error in lib.py: could not open port '/dev/ttyACM0': FileNotFoundError(2, 'ÁöÁ¤µÈ °æ·Î¸¦ Ã£À» ¼ö ¾ø½À´Ï´Ù.', None, 3)
+2025-02-18 18:59:16,735 INFO werkzeug 127.0.0.1 - - [18/Feb/2025 18:59:16] "GET /get_data HTTP/1.1" 200 -
+2025-02-18 18:59:17,729 INFO werkzeug 127.0.0.1 - - [18/Feb/2025 18:59:17] "GET /get_time HTTP/1.1" 200 -
+2025-02-18 19:00:16,195 INFO werkzeug [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.0.31:5001
+2025-02-18 19:00:16,195 INFO werkzeug [33mPress CTRL+C to quit[0m
