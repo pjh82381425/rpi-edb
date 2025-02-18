@@ -5,7 +5,7 @@ import datetime
 import logging
 import traceback
 
-logging.basicConfig(filename='./Flask-enbError.log', level=logging.ERROR)
+logging.basicConfig(filename='./Error.log', level=logging.ERROR)
 
 app = Flask(__name__)
 

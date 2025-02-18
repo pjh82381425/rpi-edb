@@ -3,7 +3,7 @@ import time
 import logging
 import traceback
 
-logging.basicConfig(filename='./libError.log', level=logging.ERROR)
+logging.basicConfig(filename='./Error.log', level=logging.ERROR)
 
 def read():
     try:
@@ -28,6 +28,3 @@ def read():
     except:
         logging.error(traceback.format_exc())
         return None, None, None
-
-a = read()
-print(a)
